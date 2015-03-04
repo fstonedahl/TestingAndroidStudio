@@ -1,9 +1,12 @@
 package com.example.forreststonedahl.beta;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,8 +15,15 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btn = (Button) findViewById(R.id.crazyButton);
+        btn.setOnClickListener(crazyButtonListener);
     }
-
+    public View.OnClickListener crazyButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(MainActivity.this, "Crazy!", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
